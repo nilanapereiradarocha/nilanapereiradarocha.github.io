@@ -1,0 +1,15 @@
+{% if page.gallery_folder %}
+<div class="inner box alt">
+        <h3>Gallery</h3>
+        <span class="image fit"><img src="{{ site.url | absolute_path}}/{{ page.image }}" alt="" /></span>
+        <div class="row 50% uniform">
+                {% for image in site.static_files %}
+                        {% unless image.path contains page.image %}
+                                {% if image.path contains page.gallery_folder %}
+                                        <div class="4u small-gallery"><span class="image fit"><img src="{{ site.url | absolute_path}}/{{ image.path }}" alt="" /></span></div>
+                                {% endif %}
+                        {% endunless %}
+                {% endfor %}
+        </div>
+</div>
+{% endif %}

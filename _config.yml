@@ -1,0 +1,39 @@
+# site settings
+title: Nilana Rocha
+subtitle: Interior Designer
+email: nilanaarquitetura@gmail.com
+description: Nilana Rocha | Interior Designer
+baseurl: "/" # the subpath of your site, e.g. /blog
+url: # the base hostname & protocol for your site
+author:
+
+# homepage tiles
+tiles-source: posts # accepts "posts" or "pages"
+tiles-count: 6
+
+# social settings
+500px_url:
+facebook_url: https://facebook.com/nilana.rocha
+github_url:
+gitlab_url: 
+googleplus_url: 
+instagram_url: https://instagram.com/nilanarocha
+linkedin_url: https://www.linkedin.com/in/nilana-rocha-b4a5aa46
+pinterest_url:
+slack_url:
+twitter_url: https://twitter.com/RochaNilana
+
+# build settings
+markdown: kramdown
+highlighter: rouge
+gems: [rouge, kramdown]
+
+sass:
+  style: compressed
+compress_html:
+  clippings: all
+  comments: ["<!-- ", " -->"]
+  endings: all
+  blanklines: false
+  profile: false
+  startings: [html, head, body]
