@@ -1,0 +1,40 @@
+---
+layout: compress
+---
+<html lang="{{ page.lang | default: site.lang | default: "en_US" }}">
+
+  {% include head.html %}
+
+  <body class="site">
+
+    {% if site.google_tag_manager %}
+
+      <!-- Google Tag Manager (noscript) -->
+      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ site.google_tag_manager }}"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+      <!-- End Google Tag Manager (noscript) -->
+
+    {% endif %}
+
+    {% include header.html %}
+
+    <div class="hero lazyload" data-bg="{{site.url}}/assets/img/posts/sleek_lg.jpg">
+      <div class="hero__wrap">
+        <h1 class="hero__title">Nilana Rocha | Interior Designer</h1>
+      </div>
+    </div>
+    
+    <main class="site__content">
+      <div class="container">
+        <div class="page-content">
+          <p>Bachelor Degree in Architecture and Urban Design. With 4 years in professional projects and improving my career solving problems. I have been worked with several projects that I was involved with friendly, enthusiastic, creative and hardworking.</p>
+          <p>Extensive experience with good points in communication, interpersonal skills, and responsive personality, ability to work with teams, result-oriented performance, with responsible and punctual attitude.</p>
+        </div>
+      </div>
+    </main>
+
+    {% include footer.html %}
+
+  </body>
+
+</html>

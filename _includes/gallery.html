@@ -1,12 +1,62 @@
 {% if page.gallery_folder %}
-<div class="inner box alt">
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+<style>
+
+/* ---- grid ---- */
+
+.grid {
+  background: #DDD;
+}
+
+/* clear fix */
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+/* ---- .grid-item ---- */
+
+.grid-sizer,
+.grid-item {
+  width: 33.333%;
+}
+
+.grid-item {
+  float: left;
+}
+
+.grid-item img {
+  display: block;
+  max-width: 100%;
+}
+
+</style>
+<script>
+// $('.grid').masonry({
+//   itemSelector: '.grid-item',
+// });
+// init Masonry
+var $grid = $('.grid').masonry({
+  itemSelector: '.grid-item',
+  percentPosition: true,
+  columnWidth: '.grid-sizer'
+});
+// layout Masonry after each image loads
+$grid.imagesLoaded().progress( function() {
+  $grid.masonry();
+});  
+
+</script>
+<div class="grid-gallery inner box alt">
         <h3>Gallery</h3>
         <span class="image fit"><img src="{{ site.url | absolute_path}}/{{ page.image }}" alt="" /></span>
-        <div class="row 50% uniform">
+        <div class="grid">
+                <div class="grid-sizer"></div>
                 {% for image in site.static_files %}
                         {% unless image.path contains page.image %}
                                 {% if image.path contains page.gallery_folder %}
-                                        <div class="4u small-gallery"><span class="image fit"><img src="{{ site.url | absolute_path}}/{{ image.path }}" alt="" /></span></div>
+                                        <div class="grid-item"><img src="{{ site.url | absolute_path}}/{{ image.path }}" alt="" /></div>
                                 {% endif %}
                         {% endunless %}
                 {% endfor %}

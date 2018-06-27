@@ -1,39 +1,44 @@
-# site settings
-title: Nilana Rocha
-subtitle: Interior Designer
-email: nilanaarquitetura@gmail.com
-description: Nilana Rocha | Interior Designer
+title: Nilana Rocha | Interior Designer # your site title
+author: Nilana Rocha | Interior Designer
+email: nilanaarquitetura@gmail.com # email for form submission, you also have to change it in _js/scripts.js
+description: > # this means to ignore newlines until "baseurl:"
+  Site da comunidade de brasileiros que trabalham com IT na Australia
 baseurl: "/" # the subpath of your site, e.g. /blog
-url: # the base hostname & protocol for your site
-author:
+url: "https://nilanarocha.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+github_username:  nilanarocha # replace with your_github_username or comment to remove link from footer
+instagram_username: nilanarocha
+social:
+  name: Nilana Rocha | Interior Designer
+  links:
+    - https://facebook.com/nilana.rocha
+    - https://github.com/nilanarocha
 
-# homepage tiles
-tiles-source: posts # accepts "posts" or "pages"
-tiles-count: 6
+service_worker: true
+google_tag_manager: 'UA-121470905-1'
 
-# social settings
-500px_url:
-facebook_url: https://facebook.com/nilana.rocha
-github_url:
-gitlab_url: 
-googleplus_url: 
-instagram_url: https://instagram.com/nilanarocha
-linkedin_url: https://www.linkedin.com/in/nilana-rocha-b4a5aa46
-pinterest_url:
-slack_url:
-twitter_url: https://twitter.com/RochaNilana
-
-# build settings
+# Build settings
 markdown: kramdown
-highlighter: rouge
-gems: [rouge, kramdown]
+highlighter: rouge # or pygments or null
+theme: jekyll-sleek
+exclude:
+  - README.md
+  - node_modules
+  - script
+  - package.json
+  - package-lock.json
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - npm-debug.log
+  - gulpfile.js
+  - sleek.jpg
 
-sass:
-  style: compressed
+include: ['_pages']
+permalink: /:title/
+
 compress_html:
   clippings: all
-  comments: ["<!-- ", " -->"]
-  endings: all
-  blanklines: false
-  profile: false
-  startings: [html, head, body]
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag

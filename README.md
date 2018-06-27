@@ -1,65 +1,60 @@
-# Forty - Jekyll Theme
-
-A Jekyll version of the "Forty" theme by [HTML5 UP](https://html5up.net/).  
-
-![Forty Theme](assets/images/forty.jpg "Forty Theme")
-
-# How to Use
-
-For those unfamiliar with how Jekyll works, check out [jekyllrb.com](https://jekyllrb.com/) for all the details, 
-or read up on just the basics of [front matter](https://jekyllrb.com/docs/frontmatter/), [writing posts](https://jekyllrb.com/docs/posts/), 
-and [creating pages](https://jekyllrb.com/docs/pages/).
-
-- **GitLab**: Simply fork this repository and start editing the `_config.yml` file!  
-- **GitHub**: Fork this reposity and create a branch named `gh-pages`, then start editing the `_config.yml` file! The `.gitlab-ci.yml` file is only needed for GitLab Pages, so feel free to delete this if you are using GitHub instead.
-
-# Added Features
-
-* **[Formspree.io](https://formspree.io/) contact form integration** - just add your email to the `_config.yml` and it works!
-* Use `_config.yml` to **set whether the homepage tiles should pull pages or posts**, as well as how many to display.
-* Add your **social profiles** easily in `_config.yml`. Only social profiles buttons you enter in `config.yml` show up on the site footer!
-* Set **featured images** in front matter.
-
-# Credits
-
-Original README from HTML5 UP:
-
-```
-Forty by HTML5 UP
-html5up.net | @ajlkn
-Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+# Nilana Rocha - Website
 
 
-This is Forty, my latest and greatest addition to HTML5 UP and, per its incredibly
-creative name, my 40th (woohoo)! It's built around a grid of "image tiles" that are
-set up to smoothly transition to secondary landing pages (for which a separate page
-template is provided), and includes a number of neat effects (check out the menu!),
-extra features, and all the usual stuff you'd expect. Hope you dig it!
+## Pré-requisitos
 
-Demo images* courtesy of Unsplash, a radtastic collection of CC0 (public domain) images
-you can use for pretty much whatever.
+- [Git](http://git-scm.com/downloads);
+- [Ruby](http://www.ruby-lang.org/pt/downloads/);
+- [Jekyll](http://jekyllrb.com/);
 
-(* = not included)
+OU
 
-AJ
-aj@lkn.io | @ajlkn
+- [Docker](https://www.docker.com/)
+- [docker-compose](https://docs.docker.com/compose/)
 
 
-Credits:
+## Como usar
 
-	Demo Images:
-		Unsplash (unsplash.com)
 
-	Icons:
-		Font Awesome (fortawesome.github.com/Font-Awesome)
+### Local Setup
+Para rodar esta página na sua máquina, siga estas etapas:
 
-	Other:
-		jQuery (jquery.com)
-		html5shiv.js (@afarkas @jdalton @jon_neal @rem)
-		background-size polyfill (github.com/louisremi)
-		Misc. Sass functions (@HugoGiraudel)
-		Respond.js (j.mp/respondjs)
-		Skel (skel.io)
-```
+- Clone este repositório (git clone git@github.com:itbraustralia/itbraustralia.github.io.git)
+- Acesse a pasta gerada
+- Execute o comando `./script/bootstrap`
+- Execute `./script/server` ou `jekyll serve -w`
 
-Repository [Jekyll logo](https://github.com/jekyll/brand) icon licensed under a [Creative Commons Attribution 4.0 International License](http://choosealicense.com/licenses/cc-by-4.0/).
+
+### Setup usando Docker
+
+Para rodar esta página tendo Docker instalado em sua máquina, siga estas etapas:
+
+- Clone este repositório (git clone git@github.com:itbraustralia/itbraustralia.github.io.git)
+- Acesse a pasta gerada
+- Execute o comando `docker-compose up`
+- Accesse `http://localhost:4000/`
+
+* Se você quiser cachear a instalação das customs gems, crie um volume no docker do seu ruby local para `/usr/local/bundle`
+
+
+## Criando um post
+
+- Crie um novo markdown baseado no arquivo `_post-example`. Este arquivo precisa estar no formato `<ano-mes-dia-url>.md`
+- Copie o arquivo para dentro da pasta `_posts`;
+- Acesse a página do blog. Ele deve estar listado como um dos nossos posts;
+- Atualize o conteúdo e atualize o navegador;
+
+
+### E quanto às imagens?
+
+Para as images você precisa criar:
+
+- `<nome-da-imagem>.jpg`: imagem padrão;
+- `<nome-da-imagem>_placehold.jpg`: imagem para ser carregada inicialmente. Como usamos lazy load para as imagens, esta imagem é necessária. Caso esteja em dúvida, copie a imagem `<nome-da-imagem>.jpg` e mude o nome para este padrão;
+- `<nome-da-imagem>_thumb.jpg`: imagem com resolução para thumbnails para computadores sem telas de retina. Caso esteja em dúvida, copie a imagem `<nome-da-imagem>.jpg` e mude o nome para este padrão; 
+- `<nome-da-imagem>_thumb@2x.jpg`: imagem com resolução para macOS. Caso esteja em dúvida, copie a imagem `<nome-da-imagem>.jpg` e mude o nome para este padrão;
+
+
+## Como contribuir
+
+Contribuições são mais que bem vindas! [Abra um pull request](https://github.com/itbraustralia/itbraustralia.github.io/pulls) com as suas alterações ou [crie uma issue](https://github.com/itbraustralia/itbraustralia.github.io/issues) com as suas sugestões.
