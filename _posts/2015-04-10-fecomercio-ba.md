@@ -3,8 +3,9 @@ layout: post
 date: "2015-04-10T12:51:06-03:00"
 title: "FECOMERCIO - BA"
 summary: Federation of Commerce, Services and Tourism of the State of Bahia, Brazil
-featured-img: fecomercio
+featured-img: featured-fecomercio
 categories: Perguntas
+gallery_folder: assets/img/posts/fecomercio
 ---
 
 ## About the project

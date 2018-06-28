@@ -3,8 +3,9 @@ layout: post
 date: "2014-10-10T12:51:06-03:00"
 title: "Revit 3D & Autocad - Apartment Ondina"
 summary: Apartment renovation using Revit for 3D modelling and Autocad
-featured-img: apartment-ondina
+featured-img: featured-apartment-ondina
 categories: Perguntas
+gallery_folder: assets/img/posts/apartment-ondina
 ---
 
 ## About the project

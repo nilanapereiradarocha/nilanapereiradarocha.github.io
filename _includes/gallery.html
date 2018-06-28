@@ -1,65 +1,51 @@
 {% if page.gallery_folder %}
-<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+<!-- http://simplelightbox.com/ -->
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
+
+<h2>Image Gallery</h2>
+
+<blockquote><i>Click on an image to picture in full size<i></blockquote>
+
+<div class="grid-gallery inner box alt">
+  <div class="grid" id="aniimated-thumbnials">
+    {% for image in site.static_files %}
+      {% unless image.path contains page.image %}
+        {% if image.path contains page.gallery_folder %}
+          <div class="grid-item">
+            <a data-fancybox="gallery" href="{{ site.url | absolute_path}}/{{ image.path }}">
+              <img src="{{ site.url | absolute_path}}/{{ image.path }}" />
+            </a>
+          </div>
+        {% endif %}
+      {% endunless %}
+    {% endfor %}
+  </div>
+</div>
 <style>
-
-/* ---- grid ---- */
-
-.grid {
-  background: #DDD;
+.grid-gallery {
+  display: flex;
+  flex: 1 auto;
 }
 
-/* clear fix */
-.grid:after {
-  content: '';
-  display: block;
-  clear: both;
-}
-
-/* ---- .grid-item ---- */
-
-.grid-sizer,
-.grid-item {
-  width: 33.333%;
-}
 
 .grid-item {
+  max-width: 180px;
+  margin: 10px;
   float: left;
 }
-
-.grid-item img {
-  display: block;
-  max-width: 100%;
+@media screen and (max-width: 480px) {
+  .grid-item {
+    display: flex;
+    flex: 1 auto;
+    max-width: 100%;
+    width: 100%;
+    margin: 5px 0;
+  }
 }
-
+.grid-item img {
+  width: 100%;
+}
 </style>
-<script>
-// $('.grid').masonry({
-//   itemSelector: '.grid-item',
-// });
-// init Masonry
-var $grid = $('.grid').masonry({
-  itemSelector: '.grid-item',
-  percentPosition: true,
-  columnWidth: '.grid-sizer'
-});
-// layout Masonry after each image loads
-$grid.imagesLoaded().progress( function() {
-  $grid.masonry();
-});  
-
-</script>
-<div class="grid-gallery inner box alt">
-        <h3>Gallery</h3>
-        <span class="image fit"><img src="{{ site.url | absolute_path}}/{{ page.image }}" alt="" /></span>
-        <div class="grid">
-                <div class="grid-sizer"></div>
-                {% for image in site.static_files %}
-                        {% unless image.path contains page.image %}
-                                {% if image.path contains page.gallery_folder %}
-                                        <div class="grid-item"><img src="{{ site.url | absolute_path}}/{{ image.path }}" alt="" /></div>
-                                {% endif %}
-                        {% endunless %}
-                {% endfor %}
-        </div>
-</div>
 {% endif %}

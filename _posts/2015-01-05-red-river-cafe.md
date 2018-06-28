@@ -3,8 +3,9 @@ layout: post
 date: "2015-01-05T12:51:06-03:00"
 title: "Red River Café"
 summary: Bar and restaurant located in Bahia, Brazil
-featured-img: red-river
+featured-img: featured-red-river
 categories: Perguntas
+gallery_folder: assets/img/posts/red-river
 ---
 
 
