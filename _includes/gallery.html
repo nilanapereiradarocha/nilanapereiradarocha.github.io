@@ -15,7 +15,16 @@
         {% if image.path contains page.gallery_folder %}
           <div class="grid-item">
             <a data-fancybox="gallery" href="{{ site.url | absolute_path}}/{{ image.path }}">
-              <img src="{{ site.url | absolute_path}}/{{ image.path }}" />
+              <figure>
+                <img
+                  data-fancybox="gallery"
+                  src="{{ site.url | absolute_path}}/{{ image.path }}",
+                  data-srcset="{{ site.url | absolute_path}}/{{ image.path }}, {{ site.url | absolute_path}}/{{ image.path }} 2x"
+                  class="lazyload blur"
+                  alt=""
+                />
+                <noscript><img src="{{ site.url | absolute_path}}/{{ image.path }}" alt=""></noscript>
+              </figure>
             </a>
           </div>
         {% endif %}
