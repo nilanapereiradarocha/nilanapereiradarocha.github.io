@@ -10,7 +10,7 @@ gallery_folder: assets/img/posts/fecomercio
 
 ## About the project
 
-Building renovation of FECOMERCIO (Federation of Commerce, Services and Tourism of the State of Bahia, Brazil). Executed by the Nágila Andrade Office with architect in charge Nilana Rocha and Interior Designer Nágila Andrade. 
+Building renovation of FECOMERCIO (Federation of Commerce, Services and Tourism of the State of Bahia, Brazil). Executed by the Nágila Andrade Office with architect in charge Nilana Rocha and Architecture Nágila Andrade. 
 
 The project consists of the renovation of all the levels of the main building, with the integration of the theatre.
 

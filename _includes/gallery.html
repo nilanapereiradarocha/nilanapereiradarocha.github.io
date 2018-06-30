@@ -15,16 +15,15 @@
     {% for image in site.static_files %}
       {% unless image.path contains page.image %}
         {% if image.path contains page.gallery_folder %}
-          <a class="lightboxgallery-gallery-item" target="_blank" href="{{ site.url | absolute_path}}/{{ image.path }}" data-title="{{page.title}}" data-alt="{{page.title}}" data-desc="{{page.summary}}">
+          <a class="lightboxgallery-gallery-item" target="_blank" href="{{ site.url | absolute_path}}/{{ image.path }}" >
             <div>
               <figure>
                 <img
                   src="{{ site.url | absolute_path}}/{{ image.path }}",
                   data-srcset="{{ site.url | absolute_path}}/{{ image.path }}, {{ site.url | absolute_path}}/{{ image.path }} 2x"
                   class="lazyload blur"
-                  alt="{{page.title}}"
                 />
-                <noscript><img src="{{ site.url | absolute_path}}/{{ image.path }}" alt="{{page.title}}"></noscript>
+                <noscript><img src="{{ site.url | absolute_path}}/{{ image.path }}"></noscript>
               </figure>
             </div>
           </a>

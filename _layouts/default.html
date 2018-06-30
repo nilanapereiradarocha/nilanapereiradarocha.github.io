@@ -20,15 +20,23 @@ layout: compress
 
     <div class="hero lazyload" data-bg="{{site.url}}/assets/img/posts/sleek_lg.jpg">
       <div class="hero__wrap">
-        <h1 class="hero__title">Nilana Rocha | Interior Designer</h1>
+        <h1 class="hero__title">Nilana Rocha <span class="hide-text">| Architecture</span></h1>
       </div>
     </div>
     
     <main class="site__content">
       <div class="container">
         <div class="page-content">
-          <p>Bachelor Degree in Architecture and Urban Design. With 4 years in professional projects and improving my career solving problems. I have been worked with several projects that I was involved with friendly, enthusiastic, creative and hardworking.</p>
-          <p>Extensive experience with good points in communication, interpersonal skills, and responsive personality, ability to work with teams, result-oriented performance, with responsible and punctual attitude.</p>
+          <figure class="profile-picture">
+            <img
+            src="{{site.url}}/assets/img/profile_placehold.png",
+            data-srcset="{{site.url}}/assets/img/profile_thumb.png, {{site.url}}/assets/img/profile_thumb@2x.png 2x"
+            class="lazyload blur"
+            alt="Nilana Rocha | Architecture"
+            />
+            <noscript><img src="{{site.url}}/assets/img/profile_thumb.png" alt="Nilana Rocha | Architecture"></noscript>
+          </figure>
+          {{ content }}
         </div>
       </div>
     </main>

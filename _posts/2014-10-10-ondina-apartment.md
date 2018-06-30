@@ -12,7 +12,7 @@ gallery_folder: assets/img/posts/apartment-ondina
 
 
 Interior architecture project of an apartment located in Salvador / BA- Brazil. 
-Executed by the Nágila Andrade Office with architect in charge Nilana Rocha and Interior Designer Nágila Andrade. 
+Executed by the Nágila Andrade Office with architect in charge Nilana Rocha and Architecture Nágila Andrade. 
 
 The project consists of the renovation of the living room with the integration of the balconies which includes painting, changing of the flooring, baseboard and lining.
 

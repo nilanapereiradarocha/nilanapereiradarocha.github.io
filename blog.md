@@ -5,7 +5,7 @@
 # See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 #
 layout: blog
-title: Nilana Rocha | Interior Designer
+title: Nilana Rocha | Architecture
 ---
 
 Some of the projects I've been working
