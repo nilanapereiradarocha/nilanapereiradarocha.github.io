@@ -1,60 +1,134 @@
 {% if page.gallery_folder %}
 <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
-<!-- http://simplelightbox.com/ -->
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" />
-<script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
+<link rel="stylesheet" href="{{ "/assets/css/lightboxgallery.css" | relative_url }}" />
+ <!--[if lt IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+<![endif]-->
+
+<script async src="{{ "/assets/js/lightboxgallery.js" | relative_url }}"></script>
 
 <h2>Image Gallery</h2>
 
 <blockquote><i>Click on an image to picture in full size<i></blockquote>
 
-<div class="grid-gallery inner box alt">
-  <div class="grid" id="aniimated-thumbnials">
+<div class="lightboxgallery-gallery clearfix">
     {% for image in site.static_files %}
       {% unless image.path contains page.image %}
         {% if image.path contains page.gallery_folder %}
-          <div class="grid-item">
-            <a data-fancybox="gallery" href="{{ site.url | absolute_path}}/{{ image.path }}">
+          <a class="lightboxgallery-gallery-item" target="_blank" href="{{ site.url | absolute_path}}/{{ image.path }}" data-title="{{page.title}}" data-alt="{{page.title}}" data-desc="{{page.summary}}">
+            <div>
               <figure>
                 <img
-                  data-fancybox="gallery"
                   src="{{ site.url | absolute_path}}/{{ image.path }}",
                   data-srcset="{{ site.url | absolute_path}}/{{ image.path }}, {{ site.url | absolute_path}}/{{ image.path }} 2x"
                   class="lazyload blur"
-                  alt=""
+                  alt="{{page.title}}"
                 />
-                <noscript><img src="{{ site.url | absolute_path}}/{{ image.path }}" alt=""></noscript>
+                <noscript><img src="{{ site.url | absolute_path}}/{{ image.path }}" alt="{{page.title}}"></noscript>
               </figure>
-            </a>
-          </div>
+            </div>
+          </a>
         {% endif %}
       {% endunless %}
     {% endfor %}
-  </div>
 </div>
 <style>
-.grid-gallery {
-  display: flex;
-  flex: 1 auto;
+/* Gallery */
+.lightboxgallery-gallery {
+  display: block;
+  margin: 60px -10px;
 }
-
-
-.grid-item {
-  max-width: 180px;
-  margin: 10px;
+.lightboxgallery-gallery-item {
+  cursor: zoom-in;
+  display: block;
   float: left;
+  width: 25%;
 }
-@media screen and (max-width: 480px) {
-  .grid-item {
-    display: flex;
-    flex: 1 auto;
-    max-width: 100%;
-    width: 100%;
-    margin: 5px 0;
+
+.lightboxgallery-gallery-item,
+.lightboxgallery-gallery-item:hover {
+  border: none;
+}
+
+@media only screen and (max-width : 767px) {
+  .lightboxgallery-gallery-item {
+    width: 33.3333%;
   }
 }
-.grid-item img {
+
+@media only screen and (max-width : 479px) {
+  .lightboxgallery-gallery-item {
+    width: 50%;
+  }
+}
+
+.lightboxgallery-gallery-item img {
   width: 100%;
 }
+
+.lightboxgallery-gallery-item > div {
+  position: relative;
+  margin: 10px;
+}
+
+.lightboxgallery-gallery-item > div:after {
+  content: " ";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 1;
+  background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,.3) 100%);
+  background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,.3) 100%);
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,.3) 100%);
+  opacity: 0;
+  -webkit-transition: opacity 400ms;
+  transition: opacity 400ms;
+}
+
+.lightboxgallery-gallery-item:hover > div:after {
+  opacity: 1;
+}
+
+.lightboxgallery-gallery-item-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px;
+  z-index: 2;
+  opacity: 0;
+  -webkit-transition: opacity 400ms;
+  transition: opacity 400ms;
+}
+
+.lightboxgallery-gallery-item:hover .lightboxgallery-gallery-item-content {
+  opacity: 1;
+}
+
+.lightboxgallery-gallery-item-title {
+  display: block;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+  line-height: 1.2;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
 </style>
+
+<script>
+jQuery(function($) {
+  $(document).on('click', '.lightboxgallery-gallery-item', function(event) {
+    event.preventDefault();
+    $(this).lightboxgallery({
+      showCounter: true,
+      showTitle: true,
+      showDescription: true
+    });
+  });
+});
+</script>
 {% endif %}
